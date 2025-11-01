@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Learning Hub ? Classic Courses & Resources</title>
+  <meta name="description" content="A classic, fast, and responsive hub for students to find courses and learning resources across the web." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%23005ac2'/%3E%3Cpath d='M20 48l44-20 44 20-44 20-44-20zm44 28l36-16v20c0 13.255-10.745 24-24 24H52c-13.255 0-24-10.745-24-24V60l36 16z' fill='white'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-row">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">??</span>
+        <span class="brand-text">Student Learning Hub</span>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="#courses" class="nav-link">Courses</a>
+        <a href="#favorites" class="nav-link">Favorites</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Find the right course. Start learning today.</h1>
+        <p class="sub">Curated free and popular learning links from trusted platforms across the internet.</p>
+        <form class="searchbar" role="search" aria-label="Search courses" onsubmit="return false">
+          <input id="searchInput" type="search" placeholder="Search topics, platforms, or keywords?" aria-label="Search courses" />
+          <button id="clearSearch" type="button" class="btn secondary" aria-label="Clear search">Clear</button>
+        </form>
+
+        <div class="filters" role="group" aria-label="Filters">
+          <select id="categoryFilter" aria-label="Filter by category">
+            <option value="all">All Categories</option>
+          </select>
+          <select id="levelFilter" aria-label="Filter by level">
+            <option value="all">All Levels</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+          <select id="typeFilter" aria-label="Filter by type">
+            <option value="all">All Types</option>
+            <option value="course">Course</option>
+            <option value="playlist">Playlist</option>
+            <option value="lecture">Lecture Series</option>
+            <option value="book">Book</option>
+            <option value="tool">Tool</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section id="courses" class="container section">
+      <div class="section-head">
+        <h2>Courses & Resources</h2>
+        <div class="section-actions">
+          <button id="resetFilters" class="btn">Reset Filters</button>
+          <a class="btn outline" href="#favorites">View Favorites</a>
+        </div>
+      </div>
+
+      <div id="resultsSummary" class="summary" role="status" aria-live="polite"></div>
+
+      <div id="courseGrid" class="grid" aria-live="polite" aria-busy="true">
+        <!-- Cards injected here -->
+      </div>
+    </section>
+
+    <section id="favorites" class="container section">
+      <div class="section-head">
+        <h2>Your Favorites</h2>
+      </div>
+      <div id="favoritesGrid" class="grid alt"></div>
+    </section>
+
+    <section id="about" class="container section">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <p>
+        This hub curates external learning resources like Khan Academy, MIT OCW, Coursera, edX, and more.
+        Click any card to visit the course on its original site. Use search, filters, and favorites to keep
+        track of what matters to you. Built with classic, accessible UI and responsive design.
+      </p>
+      <p>
+        Want to suggest a link? <a id="suggestLink" href="mailto:?subject=Suggest%20a%20course%20for%20Student%20Learning%20Hub">Email a suggestion</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <span>? <span id="year"></span> Student Learning Hub</span>
+      <div class="footer-actions">
+        <button id="shareSite" class="btn small outline">Share this site</button>
+        <a class="btn small secondary" href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
